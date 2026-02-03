@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-main: #0b0f1a;
+  --bg-card: #11162a;
+  --neon-purple: #a855f7;
+  --neon-cyan: #22d3ee;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+}
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #141b3a, var(--bg-main));
+  font-family: "Orbitron", sans-serif;
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.questions {
+  width: 90%;
+  max-width: 800px;
+}
+.title h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+}
+.section-center {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.question {
+  background: linear-gradient(
+    145deg,
+    rgba(168, 85, 247, 0.1),
+    rgba(34, 211, 238, 0.05)
+  );
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.15);
+  transition: transform 0.2s ease;
+}
+.question:hover {
+  animation: glowPulse 2.5s infinite ease-in-out;
+  transform: translateY(-3px) scale(1.01);
+}
+.question-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.question-title p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.question-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--neon-purple);
+  font-size: 1.4rem;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+.question-btn:hover {
+  color: var(--neon-cyan);
+  transform: scale(1.2);
+}
+.plus-icon {
+  pointer-events: none;
+}
+.minus-icon {
+  pointer-events: none;
+  display: none;
+}
+.show-text .minus-icon {
+  display: inline;
+}
+.show-text .plus-icon {
+  display: none;
+}
+.question-text {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: none;
+}
+.question-text p {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.show-text .question-text {
+  display: block;
+}
+@keyframes glowPulse {
+  0% {
+    box-shadow:
+      0 0 10px rgba(168, 85, 247, 0.2),
+      0 0 20px rgba(34, 211, 238, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(168, 85, 247, 0.6),
+      0 0 50px rgba(34, 211, 238, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(168, 85, 247, 0.2),
+      0 0 20px rgba(34, 211, 238, 0.1);
+  }
+}
